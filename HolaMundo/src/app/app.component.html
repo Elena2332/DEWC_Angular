@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+</head>
+<body>
+  <h1>*ngIf</h1>
+  <hr>
+  <div class="divIf">
+    <button onclick="cambiarVisibilidad()">Mostrar/Ocultar</button>
+    <div *ngIf="mostrar">
+      <h2>Un poder conlleva una gran resposavilidad</h2>
+      <p>-Ben Parker-</p>
+    </div>
+  </div>
+  
+  <h1>*ngFor</h1>
+  <hr>
+  <div class="divFor">
+    <ol *ngFor="personaje as per">
+      <li>{per}</li>
+    </ol>
+  </div>
+</body>
+</html>
