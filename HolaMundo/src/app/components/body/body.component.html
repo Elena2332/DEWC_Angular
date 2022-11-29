@@ -1,14 +1,23 @@
-<div class="col">
-    <h1>*ngIf</h1>
-    <hr/>
-  <!-- <button onclick="cambiarVisibilidad()">Mostrar/Ocultar</button>
-  <div *ngIf="mostrar">
-    <h2>Un poder conlleva una gran resposavilidad</h2>
-    <p>-Ben Parker-</p>
-  </div> -->
-</div>
+<div class="row">
+    <div class="col">
+        <h1>*ngIf</h1>
+        <hr/>
+        <div class="container">
+            <div *ngIf="mostrar" class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{frase.autor}}</h5>
+                    <p class="card-text">{{frase.mensaje}}</p>
+                </div>
+            </div>
+            <a class="btn btn-outline-primary btn-block" (click)="cambiarVisibilidad()">Mostrar/ocultar</a>
+        </div>
+    </div>
 
-<div class="col">
-    <h1>*ngFor</h1>
-    <hr/>
+    <div class="col">
+        <h1>*ngFor</h1>
+        <hr/>
+        <ul class="list-group">
+            <li *ngFor="let per of personajes; let i=index" class="list-group-item"> {{i+1}}-{{per}} </li>
+        </ul>
+    </div>
 </div>
