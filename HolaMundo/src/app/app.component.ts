@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HolaMundo';
+  nombre = 'Elena';
+  apellido = 'de Troya';
+
   mostrar = false;
 
   personajes = ["Spiderman","Venom", "Dr.Octopus"];
