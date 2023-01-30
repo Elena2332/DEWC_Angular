@@ -18,6 +18,17 @@ export class FormComponent implements OnInit{
   {
     this.crearFormulario();
     this.cargarDataAlFormulario();
+    this.crearListeners();
+  }
+
+  
+  crearListeners()
+  {
+    this.form.valueChanges.subscribe(valor =>{
+      console.log(valor);
+    });
+
+    this.form.statusChanges.subscribe(status => console.log({status}))
   }
 
   crearFormulario()
@@ -25,12 +36,17 @@ export class FormComponent implements OnInit{
     this.form = this.fb.group({
       nombre: ['', Validators.required, Validators.minLength(5)],   //validators:= libreria para validaciones
       apellido: ['', Validators.required, Validators.minLength(5), this.validadores.noSerrano],
+      pass1: ['',Validators.required],
+      pass2: ['',Validators.required],
       correo: ['', Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')],
+      usuario: ['', , this.validadores.existeUsuario],
       direccion: this.fb.group({
         poblacion: ['',Validators.required],
         ciudad: ['',Validators.required]
       }),
       pasatiempos: this.fb.array([])
+    },{
+      validators: this.validadores.passwordsIguales('pass1','pass2')
     });  
   }
 
@@ -41,6 +57,8 @@ export class FormComponent implements OnInit{
       nombre: 'Txema',
       apellido: 'Serrano',
       correo: 'asd@asd.com',
+      pass1: 'asd',
+      pass2: 'asd',
       direccion: {
         poblacion: 'asd',
         provincia: 'asd'
@@ -105,5 +123,22 @@ export class FormComponent implements OnInit{
   borrarPasatiempo(i : number)
   {
     this.pasatiempos.removeAt(i)
+  }
+
+  get pass1NoValido()
+  {
+    return this.form.get('pass1').invalid && this.form.get('pass1').touched
+  }
+
+  get pass2NoValido()
+  {
+    const pass1 = this.form.get('pass1').value 
+    const pass2 = this.form.get('pass2').value 
+
+    return (pass1 === pass2) ? false:true;
+  }
+
+  get usuarioNoValido(){
+    return this.form.get('usuario').invalid && this.form.get('usuario').touched
   }
 }
