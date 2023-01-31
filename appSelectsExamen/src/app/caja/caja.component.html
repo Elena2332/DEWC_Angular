@@ -1,0 +1,31 @@
+<form>
+    <h1>Examen Angular 2ª Evaluacion</h1>
+    <div>
+        <label>Pais:</label>
+        <select name="selPais" id="selPais" onchange="llenarProvincias()">
+            <option *ngFor="let pa of paises">
+                {{pa}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <label>Provincia o Estado:</label>
+        <select name="selProvincia" id="selProvincia">
+            <option *ngFor="let prov of provincias">
+                {{prov}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <label>Ciudad:</label>
+        <select name="selCiudad" id="selCiudad" onchange="comprobarMensaje()">
+            <option *ngFor="let ciu of ciudades">
+                {{ciu}}
+            </option>
+        </select>
+    </div>
+
+    <div *ngIf="mostrarMensaje">
+        <p>Has Nacido en {{this.pais}}, provincia/estado de {{this.provincia}}, en la ciudad de {{this.ciudad}}</p>
+    </div>
+</form>
