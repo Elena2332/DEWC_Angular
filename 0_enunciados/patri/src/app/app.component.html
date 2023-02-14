@@ -1,0 +1,14 @@
+<h1> {{pageTitle}}</h1>
+
+<form>
+  <label for="temperatura">Temperatura (Cº)</label>
+  <input type="number" value="0" [formControl]="temperatura" id="temperatura">
+
+  <label for="distancia">Distancia (kms)</label>
+  <input type="number" value="0" [formControl]="distancia" id="distancia">
+
+  <button type="button" (click)="mostrarResultado()">Convertir</button>
+</form>
+
+<div>Temperatura: {{nuevaTemperatura}} (ºF)</div>
+<div *ngIf="nuevaDistancia != '0.00'">Distancia {{nuevaDistancia}} (Millas) </div>
