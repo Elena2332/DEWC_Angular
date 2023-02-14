@@ -52,7 +52,7 @@ export class AppComponent {
           else 
           {
             let aux = n1/n2;
-            aux = Math.trunc(aux*100)
+            aux = Math.round(aux*100)
             aux = aux / 100
             this.resultado = aux
           }
