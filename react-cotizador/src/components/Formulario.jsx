@@ -12,7 +12,7 @@ const Formulario = () => {
         e.preventDefault();
 
         if (Object.values(datos).includes('')) {
-            setError('Todos los campos son obligatorios')
+            setError('Rellena todos los campos')
             return
         }
         setError('')
@@ -26,7 +26,7 @@ const Formulario = () => {
             <div className="my-5">
                 <label htmlFor="" className="block mb-3 font-bold text-gray-400 uppercase">MARCA</label>
                 <select name="marca" id="marca" className="w-full p-3 bg-white border border-gray-200" onChange={e => handleChangeDatos(e)} value={datos.marca}>
-                    <option value="">-- Seleccionar Marca --</option>
+                    <option value="">-- Selecciona Marca --</option>
                     {MARCAS.map(marca => (
                         <option key={marca.id} value={marca.id}>{marca.nombre}</option>
                     ))}
@@ -35,7 +35,7 @@ const Formulario = () => {
             <div className="my-5">
                 <label htmlFor="" className="block mb-3 font-bold text-gray-400 uppercase">AÑO</label>
                 <select name="anio" id="anio" className="w-full p-3 bg-white border border-gray-200" onChange={e => handleChangeDatos(e)} value={datos.anio}>
-                    <option value="">-- Seleccionar Año --</option>
+                    <option value="">-- Selecciona Año --</option>
                     {YEARS.map(year => (
                         <option key={year} value={year}>{year}</option>
                     ))}
@@ -43,7 +43,7 @@ const Formulario = () => {
             </div>
 
             <div className="my-5">
-                <label htmlFor="" className="block mb-3 font-bold text-gray-400 uppercase">elige un plan</label>
+                <label htmlFor="" className="block mb-3 font-bold text-gray-400 uppercase">Selecciona un plan</label>
                 <div className="flex gap-3 items-center">
                     {PLANES.map(plan => (
                         <Fragment key={plan.id}>
