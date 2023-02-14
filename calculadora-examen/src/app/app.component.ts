@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -51,9 +51,11 @@ export class AppComponent {
             this.resultado = 'Error de Division por cero'
           else 
           {
+            // redondear a las centesimas
             let aux = n1/n2;
             aux = Math.round(aux*100)
             aux = aux / 100
+            //resultado
             this.resultado = aux
           }
         }
