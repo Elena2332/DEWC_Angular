@@ -23,14 +23,6 @@ export class AppComponent {
 
   }
 
-  crearListeners()
-  {
-    this.form.valueChanges.subscribe(valor =>{
-      this.resultado = '';
-    });
-
-  }
-
   calcular()
   {
     let n1 = this.form.value.n1;    
@@ -59,12 +51,14 @@ export class AppComponent {
             this.resultado = 'Error de Division por cero'
           else 
           {
-            this.resultado = Math.round(n1/n2)
+            let aux = n1/n2;
+            aux = Math.trunc(aux*100)
+            aux = aux / 100
+            this.resultado = aux
           }
         }
       }
     }
-    console.log(n1);
   }
 
 }
